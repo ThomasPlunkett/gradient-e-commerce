@@ -1,6 +1,6 @@
 import logo from "./assets/46.png";
 import "./App.css";
-import Header from "./components/Header"
+import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 
 function App() {
