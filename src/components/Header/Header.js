@@ -13,11 +13,11 @@ const Header = () => {
       </ul>
       <div className="center-nav">
         <div>
-          <Link to="/"> Shop </Link>
+          <Link style={{padding:'20px'}} to="/"> Shop </Link>
         </div>
         <div>
           <div>
-            <Link to="/"> Home </Link>
+            <Link style={{padding:'20px'}}  to="/"> Home </Link>
           </div>
         </div>
       </div>
