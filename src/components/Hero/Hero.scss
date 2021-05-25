@@ -13,7 +13,12 @@
     font-size: 2rem;
   }
 }
+@media (min-height: 1024px) {
+  .hero-image {
+    font-size: 2rem;
+  }
+}
 
-.shop-now-btn{
-text-align: center;
+.shop-now-btn {
+  text-align: center;
 }
