@@ -12,11 +12,8 @@
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
     "bulma": "^0.9.2",
-<<<<<<< HEAD
-=======
     "font-awesome": "^4.7.0",
     "node-sass": "^6.0.0",
->>>>>>> ff436992cb08d9bfa6017150ed0c828d1bebc6c0
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-fontawesome": "^1.7.1",
