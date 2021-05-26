@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { ProductsContext } from "../../context/Products-Context";
+// Couldn't remember if we were sticking with the layout component or not, just imported it to be safe, it's used in the jsx as well but we can always swap it out no problem if not
 import Layout from "../shared/Layout";
 import "./SingleProduct.scss";
 
@@ -18,4 +19,26 @@ const SingleProduct = ({ match, history: { push } }) => {
 
     setProduct(product);
   });
+
+  const { imageUrl, title, price, description } = product;
+  return (
+    <Layout>
+      <div>
+        <div>
+          <img src={imageUrl} alt="product" />
+        </div>
+        <div>
+          <div>
+            <h3>{title}</h3>
+            <p>{price}</p>
+          </div>
+          <div>
+            <button>Add to Cart</button>
+            <button>Checkout</button>
+          </div>
+          <div>{description}</div>
+        </div>
+      </div>
+    </Layout>
+  );
 };
