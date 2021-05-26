@@ -12,6 +12,7 @@ function App() {
       <FeaturedCollection />
       <Footer />
     </div>
+    
   );
 }
 
