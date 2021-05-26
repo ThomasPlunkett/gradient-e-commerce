@@ -23,22 +23,31 @@ const SingleProduct = ({ match, history: { push } }) => {
   const { imageUrl, title, price, description } = product;
   return (
     <Layout>
-      <div>
-        <div>
+      <div className="single-product-container">
+        <div className="product-image">
           <img src={imageUrl} alt="product" />
         </div>
-        <div>
-          <div>
+        <div className="product-details">
+          <div className="name-price">
             <h3>{title}</h3>
             <p>{price}</p>
           </div>
-          <div>
-            <button>Add to Cart</button>
-            <button>Checkout</button>
+          <div className="add-to-cart-buttons">
+            <button className="button is-white nomad-btn" id="btn-gray-outline">
+              Add to Cart
+            </button>
+            <button
+              className="button is-black nomad-btn"
+              id="btn-white-outline"
+            >
+              Checkout
+            </button>
           </div>
-          <div>{description}</div>
+          <p>{description}</p>
         </div>
       </div>
     </Layout>
   );
 };
+
+export default withRouter(SingleProduct);
