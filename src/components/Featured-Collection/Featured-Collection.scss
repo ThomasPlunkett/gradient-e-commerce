@@ -1,0 +1,21 @@
+.featured-collection {
+  text-align: center;
+  grid-template-rows: auto;
+  margin: 0 auto;
+  margin-top: 6rem;
+}
+.featured-section-title {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.featured-image {
+  cursor: pointer;
+}
+
+.Product-Container {
+  display: flex;
+  flex-direction: row;
+}
