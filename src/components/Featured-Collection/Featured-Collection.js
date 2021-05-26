@@ -11,7 +11,9 @@ const FeaturedCollection = () => {
   return (
     <div className="featured-collection ">
       <h2 className="featured-section-title">Featured Collection </h2>
-      <div className="products">{productItems}</div>
+      <div className="Product-Container">
+        <div className="products">{productItems}</div>
+      </div>
     </div>
   );
 };
