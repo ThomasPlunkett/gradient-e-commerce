@@ -17,7 +17,9 @@ const Hero = () => {
               backgroundColor:'black',
               padding: 8, 
               fontWeight: "bolder", 
-              display: "inline-block"
+              display: "inline-block",
+              paddingLeft: 40,
+              paddingRight: 40,
               }}
               className="button" id="shop-now">
               SHOP ALL
