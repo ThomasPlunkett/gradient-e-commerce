@@ -14,7 +14,7 @@ const Hero = () => {
               borderColor: 'black',
               fontSize: 20,
               color:"white",
-              backgroundColor:'#4444',
+              backgroundColor:'black',
               padding: 8, 
               fontWeight: "bolder", 
               display: "inline-block"
