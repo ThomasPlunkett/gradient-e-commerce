@@ -6,7 +6,7 @@
 .hero__title {
   text-align: center;
   font-size: 2rem;
-  
+   
 }
 
 @media (min-width: 1024px) {
@@ -22,4 +22,11 @@
 
 .shop-now-btn {
   text-align: center;
+  
+  
 }
+
+.button:hover {
+  background-color: red;
+}
+

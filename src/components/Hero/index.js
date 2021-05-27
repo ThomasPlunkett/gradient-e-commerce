@@ -4,12 +4,23 @@ import "./Hero.scss";
 const Hero = () => {
   return (
     <section className="hero is-info is-large hero-image">
-      <div className="hero-body">
+      <div style={{height: 700}} className="hero-body">
         <div className="container">
-          <h1 className="title">gradients.shop</h1>
+          <br/>
+          <br/>
+          <h1 style={{marginBottom: 60, fontSize:65}}  className="title">gradients.shop</h1>
           <div className="shop-now-btn">
-            <button className="button is-black" id="shop-now">
-              Shop All
+            <button style={{
+              borderColor: 'black',
+              fontSize: 20,
+              color:"white",
+              backgroundColor:'#4444',
+              padding: 8, 
+              fontWeight: "bolder", 
+              display: "inline-block"
+              }}
+              className="button" id="shop-now">
+              SHOP ALL
             </button>
           </div>
         </div>
