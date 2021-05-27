@@ -9,17 +9,17 @@ const SingleProduct = ({ match, history: { push } }) => {
   const { products } = useContext(ProductsContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
+
   useEffect(() => {
     const product = products.find((item) => Number(item.id) === Number(id));
-
     if (!product) {
-      //    this route name is just what the instructions said, just make sure it's routed to Emily's product/shop page
       return push("/shop");
     }
-
     setProduct(product);
   }, [id, product, push, products]);
-
+  if (!product) {
+    return null;
+  }
   const { imageUrl, title, price, description } = product;
   return (
     <Layout>
