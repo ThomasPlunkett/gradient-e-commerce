@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Layout from "../../shared/Layout";
-import Featured from "../../shared/Featured";
-import { ProductsContext } from "../../../context/products-context";
+import Featured from "../../shared/Featured/Featured-Product";
+import { ProductsContext } from "../../../context/Products-Context";
 import "./Shop.scss";
 
 const Shop = () => {
