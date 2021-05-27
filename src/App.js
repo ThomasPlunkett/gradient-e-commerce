@@ -2,7 +2,7 @@ import "./App.css";
 import Home from "./components/CartIcon/Home";
 import Shop from "./components/Pages/shop/index";
 
-import FeaturedCollection from "./components/Featured-Collection/Featured-Collection";
+// import FeaturedCollection from "./components/Featured-Collection/Featured-Collection";
 // imported this in
 import SingleProduct from "./components/Single-Product/Single-Product";
 import { Switch,Route } from "react-router-dom";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/shop" component={Shop} />
       </Switch>
       {/* added this route but commented it out since we still need to fix the product page */}
-      {/* <Route path='/product/:id' component={SingleProduct} /> */}
+      <Route path='/product/:id' component={SingleProduct} />
     </div>
   );
 }
