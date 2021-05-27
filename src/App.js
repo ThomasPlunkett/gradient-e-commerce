@@ -1,20 +1,22 @@
 import "./App.css";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer";
-import Hero from "./components/Hero/index";
+import Home from "./components/CartIcon/Home";
+import Shop from "./components/Pages/shop/index";
+
 import FeaturedCollection from "./components/Featured-Collection/Featured-Collection";
 // imported this in
 import SingleProduct from "./components/Single-Product/Single-Product";
+import { Switch,Route } from "react-router-dom";
+
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Hero />
-      <FeaturedCollection />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/shop" component={Shop} />
+      </Switch>
       {/* added this route but commented it out since we still need to fix the product page */}
       {/* <Route path='/product/:id' component={SingleProduct} /> */}
-      <Footer />
     </div>
   );
 }
