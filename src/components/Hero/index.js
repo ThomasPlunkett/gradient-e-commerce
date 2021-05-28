@@ -1,5 +1,6 @@
 import React from "react";
 import "./Hero.scss";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -10,7 +11,8 @@ const Hero = () => {
           <br/>
           <h1 style={{marginBottom: 60, fontSize:65}}  className="title">gradients.shop</h1>
           <div className="shop-now-btn">
-            <button style={{
+            <div>
+            <Link style={{
               borderColor: 'black',
               fontSize: 20,
               color:"white",
@@ -20,10 +22,10 @@ const Hero = () => {
               display: "inline-block",
               paddingLeft: 40,
               paddingRight: 40,
-              }}
-              className="button" id="shop-now">
-              SHOP ALL
-            </button>
+              cursor: 'pointer',
+              textDecoration: 'none'
+            }} to="/shop">SHOP ALL </Link>
+            </div>
           </div>
         </div>
       </div>
