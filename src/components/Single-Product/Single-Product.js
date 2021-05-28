@@ -1,12 +1,15 @@
 import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { ProductsContext } from "../../context/Products-Context";
+import { CartContext } from '../../context/cart-context';
+import { isInCart } from '../../helpers';
 // Couldn't remember if we were sticking with the layout component or not, just imported it to be safe, it's used in the jsx as well but we can always swap it out no problem if not
 import Layout from "../shared/Layout";
 import "./SingleProduct.scss";
 
 const SingleProduct = ({ match, history: { push } }) => {
   const { products } = useContext(ProductsContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
 
@@ -21,6 +24,7 @@ const SingleProduct = ({ match, history: { push } }) => {
     return null;
   }
   const { imageUrl, title, price, description } = product;
+  const itemInCart = isInCart(product, cartItems);
   return (
     <Layout>
       <div className="single-product-container">
@@ -33,9 +37,24 @@ const SingleProduct = ({ match, history: { push } }) => {
             <p>{price}</p>
           </div>
           <div className="add-to-cart-buttons">
-            <button className="button is-white nomad-btn" id="btn-gray-outline">
-              Add to Cart
-            </button>
+            {
+              !itemInCart && 
+              <button 
+                className="button is-white nomad-btn" 
+                id="btn-gray-outline"
+                onClick={() => addProduct(product)}>
+                  Add to Cart
+              </button>
+            }
+            {
+              itemInCart &&
+              <button 
+                className="button is-white nomad-btn" 
+                id="btn-gray-outline"
+                onClick={()=> increase(product)}>
+                  Add More
+              </button>
+            }
             <button
               className="button is-black nomad-btn"
               id="btn-white-outline"
