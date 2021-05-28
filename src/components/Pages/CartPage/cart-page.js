@@ -30,5 +30,5 @@ const CartPage = () => {
     </Layout>
   );
 }
-
+ 
 export default CartPage;
