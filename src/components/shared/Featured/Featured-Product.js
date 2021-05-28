@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { isInCart } from '../../helpers';
-import { CartContext } from '../../context/cart-context';
+import { CartContext } from '../../cart-context';
 import { withRouter } from "react-router-dom";
 import "./Featured.scss";
 
