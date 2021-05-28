@@ -1,7 +1,7 @@
 const storeCartItems = (cartItems) => {
-    const cart = cartItems.length > 0 ? cartItems : [];
-    localStorage.setItem('cart', JSON.stringify(cart));
-  }
+  const cart = cartItems.length > 0 ? cartItems : [];
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
   
   export const sumItems = cartItems => {
     storeCartItems(cartItems);
