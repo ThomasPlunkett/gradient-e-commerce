@@ -1,42 +1,41 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 import { isInCart } from '../../helpers';
-import { CartContext } from '../../cart-context';
-import { withRouter } from "react-router-dom";
-import "./Featured.scss";
+import { CartContext } from '../../context/cart-context'; 
+import { withRouter } from 'react-router-dom';
+import './featured-product.styles.scss';
 
 const FeaturedProduct = (props) => {
-  const { id, title, imageUrl, price, history } = props;
-  const product = { id, title, imageUrl, price, history };
+  const { title, imageUrl, price, history, id, description } = props;
+  const product = { title, imageUrl, price, id,  description };
   const { addProduct, cartItems, increase } = useContext(CartContext);
-  const itemInCart =
+  const itemInCart = isInCart(product, cartItems);
   return (
-    <div className="featured">
-      <div
-        className="featured-image"
-        onClick={() => history.push(`/product/${id}`)}>
-        <img src={imageUrl} alt="product" />
+    <div className='featured-product'>
+      <div className='featured-image' onClick={() => history.push(`/product/${id}`)}>
+        <img src={imageUrl} alt='product' />
       </div>
-      <div className="name-price">
-        <h3> {title}</h3>
-        <p> ${price}</p>
-        {
+      <div className='name-price'>
+        <h3>{title}</h3>
+        <p>$ {price}</p>
+        { 
           !itemInCart && 
           <button 
-            className="button is-black nomad-btn"
+            className='button is-black nomad-btn'
             onClick={() => addProduct(product)}>
-              Add to Cart</button>
+              ADD TO CART</button>
         }
         {
           itemInCart &&
           <button 
-            className="button is-black nomad-btn"
+            className='button is-white nomad-btn'
             id='btn-white-outline'
             onClick={()=> increase(product)}>
-              Add More </button>
+              ADD MORE</button>
         }
+        
       </div>
     </div>
   );
-};
+}
 
 export default withRouter(FeaturedProduct);
