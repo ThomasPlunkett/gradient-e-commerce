@@ -9,7 +9,7 @@ import "./SingleProduct.scss";
 
 const SingleProduct = ({ match, history: { push } }) => {
   const { products } = useContext(ProductsContext);
-  const { addProduct, cartItems } = useContext(CartContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
   useEffect(() => {
@@ -40,7 +40,7 @@ const SingleProduct = ({ match, history: { push } }) => {
           </div>
           <div className="add-to-cart-buttons">
             {
-              !inInCart && 
+              !itemInCart && 
               <button 
                 className="button is-white nomad-btn" 
                 id="btn-gray-outline"
@@ -49,11 +49,11 @@ const SingleProduct = ({ match, history: { push } }) => {
               </button>
             }
             {
-              isInCart &&
+              itemInCart &&
               <button 
                 className="button is-white nomad-btn" 
                 id="btn-gray-outline"
-                onClick={()=> addProduct(product)}>
+                onClick={()=> increase(product)}>
                   Add More
               </button>
             }

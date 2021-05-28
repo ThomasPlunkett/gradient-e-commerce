@@ -7,7 +7,8 @@ import "./Featured.scss";
 const FeaturedProduct = (props) => {
   const { id, title, imageUrl, price, history } = props;
   const product = { id, title, imageUrl, price, history };
-  const { addProduct, cartItems } = useContext(CartContext);
+  const { addProduct, cartItems, increase } = useContext(CartContext);
+  const itemInCart =
   return (
     <div className="featured">
       <div
@@ -19,18 +20,18 @@ const FeaturedProduct = (props) => {
         <h3> {title}</h3>
         <p> ${price}</p>
         {
-          !inInCart(product, cartItems) && 
+          !itemInCart && 
           <button 
             className="button is-black nomad-btn"
             onClick={() => addProduct(product)}>
               Add to Cart</button>
         }
         {
-          !inInCart(product, cartItems) &&
+          itemInCart &&
           <button 
             className="button is-black nomad-btn"
             id='btn-white-outline'
-            onClick={()=> {}}>
+            onClick={()=> increase(product)}>
               Add More </button>
         }
       </div>
