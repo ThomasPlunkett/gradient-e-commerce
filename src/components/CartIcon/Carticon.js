@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 import { withRouter } from 'react-router-dom';
-import shoppingBag from '../../assets/shopping-bag.png';
+import shoppingBag from '../../assets/shopping-cart (3).png';
 import { CartContext } from '../../context/cart-context';
-import './cart-icon.styles.scss';
+import '../../components/CartIcon/Home/index';
 
 const CartIcon = ({ history }) => {
   const { itemCount, cartItems } = useContext(CartContext);

@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
-import { isInCart } from '../../helpers';
-import { CartContext } from '../../context/cart-context'; 
+import { isInCart } from '../../../helpers';
+import { CartContext } from '../../../context/cart-context'; 
 import { withRouter } from 'react-router-dom';
-import './featured-product.styles.scss';
+import './Featured.scss';
 
 const FeaturedProduct = (props) => {
   const { title, imageUrl, price, history, id, description } = props;

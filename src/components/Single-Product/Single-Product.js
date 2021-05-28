@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { withRouter } from "react-router-dom";
 import { ProductsContext } from "../../context/Products-Context";
 import { CartContext } from '../../context/cart-context';
-import { inInCart } from '../../helpers';
+import { isInCart } from '../../helpers';
 // Couldn't remember if we were sticking with the layout component or not, just imported it to be safe, it's used in the jsx as well but we can always swap it out no problem if not
 import Layout from "../shared/Layout";
 import "./SingleProduct.scss";
@@ -26,7 +26,7 @@ const SingleProduct = ({ match, history: { push } }) => {
   // while we check for product
   if (!product) { return null }
   const { imageUrl, title, price, description } = product;
-  const itemInCart = inInCart(product, cartItems);
+  const itemInCart = isInCart(product, cartItems);
   return (
     <Layout>
       <div className="single-product-container">
