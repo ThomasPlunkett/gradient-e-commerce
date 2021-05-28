@@ -12,19 +12,17 @@ const SingleProduct = ({ match, history: { push } }) => {
   const { addProduct, cartItems, increase } = useContext(CartContext);
   const { id } = match.params;
   const [product, setProduct] = useState(null);
+
   useEffect(() => {
     const product = products.find((item) => Number(item.id) === Number(id));
-    
-    // if product does not exist, redirect to shop page
     if (!product) {
-      //    this route name is just what the instructions said, just make sure it's routed to Emily's product/shop page
       return push("/shop");
     }
-
     setProduct(product);
   }, [id, product, push, products]);
-  // while we check for product
-  if (!product) { return null }
+  if (!product) {
+    return null;
+  }
   const { imageUrl, title, price, description } = product;
   const itemInCart = isInCart(product, cartItems);
   return (
