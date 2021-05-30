@@ -1,28 +1,40 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
-import CartIcon from "../CartIcon/Carticon";
+import { auth } from "../../firebase";
+import { UserContext } from "../../context/user-context";
+
+import Cart from "../CartIcon/Carticon";
 
 const Header = () => {
+  const { user } = useContext(UserContext);
+  console.log("user", user);
   return (
     <nav className="nav-menu container">
+      <div className="logo">
+        <Link to="/"> STORE</Link>
+      </div>
       <ul>
         <li>
-          <Link to="/">Store</Link>
+          <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/shop">Shop</Link>
+        </li>
+        {!user && (
+          <li>
+            <Link to="/sign-in">Sign In</Link>
+          </li>
+        )}
+        {user && <li onClick={() => auth.signOut()}>Sign Out</li>}
+        {!user && (
+          <li>
+            <Link to="/sign-up">Sign Up</Link>
+          </li>
+        )}
       </ul>
-      <div className="center-nav">
-        <div>
-          <Link style={{padding:'20px'}} to="/shop"> Shop </Link>
-        </div>
-        <div>
-          <div>
-            <Link style={{padding:'20px'}}  to="/"> Home </Link>
-          </div>
-        </div>
-      </div>
 
-      <CartIcon />
+      <Cart />
     </nav>
   );
 };
