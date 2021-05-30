@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 import { ProductsContext } from "../../context/Products-Context";
-import { CartContext } from '../../context/cart-context';
-import { isInCart } from '../../helpers';
+import { CartContext } from "../../context/cart-context";
+import { isInCart } from "../../helpers";
 // Couldn't remember if we were sticking with the layout component or not, just imported it to be safe, it's used in the jsx as well but we can always swap it out no problem if not
 import Layout from "../shared/Layout";
 import "./SingleProduct.scss";
@@ -37,30 +37,31 @@ const SingleProduct = ({ match, history: { push } }) => {
             <p>{price}</p>
           </div>
           <div className="add-to-cart-buttons">
-            {
-              !itemInCart && 
-              <button 
-                className="button is-white nomad-btn" 
+            {!itemInCart && (
+              <button
+                className="button is-white nomad-btn"
                 id="btn-gray-outline"
-                onClick={() => addProduct(product)}>
-                  Add to Cart
+                onClick={() => addProduct(product)}
+              >
+                Add to Cart
               </button>
-            }
-            {
-              itemInCart &&
-              <button 
-                className="button is-white nomad-btn" 
+            )}
+            {itemInCart && (
+              <button
+                className="button is-white nomad-btn"
                 id="btn-gray-outline"
-                onClick={()=> increase(product)}>
-                  Add More
+                onClick={() => increase(product)}
+              >
+                Add More
               </button>
-            }
-            <button
-              className="button is-black nomad-btn"
+            )}
+            <Link
+              to="/cart"
+              className="button is-white nomad-btn __checkout"
               id="btn-white-outline"
             >
-              Checkout
-            </button>
+              Proceed to Cart
+            </Link>
           </div>
           <p>{description}</p>
         </div>
